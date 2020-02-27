@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import { HashRouter as Router, Link, Route } from 'react-router-dom';
 import ClientListTable from './components/clientsListTable';
+import Prize from './components/prize';
 import './App.css';
 
 const Home = () => (
@@ -17,9 +18,10 @@ const List = () => (
     </div>
 );
 
-const Product = () => (
+const Activity = () => (
     <div>
-        <h2>Product</h2>
+        <h2>Prize</h2>
+        <Prize/>
     </div>
 );
 
@@ -31,15 +33,15 @@ class MyApp extends Component {
                     <div className='nav' style={{display:'flex',justifyContent:'space-around'}}>
                         <Link to={'/'}>Home</Link>
                         <Link to={'/List'}>List</Link>
-                        <Link to={'/Product'}>Product</Link>
+                        <Link to={'/Activity'}>Prize</Link>
                     </div>
                     <hr/>
                     <Route path='/' exact component={Home}></Route>
                     <Route path='/list' component={List}></Route>
-                    {/*<Route path='/product' component={Product}></Route>*/}
-                    <Route path='/product' render={() => {
+                    {/*<Route path='/activity' component={Activity}></Route>*/}
+                    <Route path='/activity' render={() => {
                         console.log('额外逻辑')
-                        return <Product/>
+                        return <Activity/>
                     }}></Route>
                 </div>
             </Router>
